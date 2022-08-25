@@ -26,26 +26,10 @@ export class AuthViewModel {
     }
 
     async onClickSignIn() {
-        if (!this.validateForm()) {
-            return;
+        const auth = await this.authUseCase.execute(this.email, this.password)
+        if(auth.error) {
+            this.error = auth.error
         }
-        this.error = await this.authUseCase.execute(this.email, this.password)
-    }
-
-    private validateForm = (): boolean => {
-
-        if (!this.email) {
-            this.error = 'Логин не может быть пустым!';
-            return false;
-        }
-
-        if (!this.password) {
-            this.error = 'Введите пароль!';
-            return false;
-        }
-
-        this.error = ''
-        return true
     }
 
 }

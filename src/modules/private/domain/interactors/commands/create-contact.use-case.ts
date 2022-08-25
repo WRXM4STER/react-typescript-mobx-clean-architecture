@@ -1,4 +1,6 @@
-import contactsEntity from "../../entity/contacts.entity"
+import FormValidator from "../../../../../form-validator"
+import { Resource } from "../../../../../util/resource"
+import { Contact } from "../../models/contact.model"
 import { ContactsRepository } from "../../repository/contacts.repository"
 
 export class CreateContactUseCase {
@@ -9,16 +11,26 @@ export class CreateContactUseCase {
         this.repository=repository
     }
 
-    public async execute(name:string,phone:string):Promise<string> {
-        let error = ''
-        try {
-            const contact = await this.repository.createContact(name,phone)
-            contactsEntity.create(contact)
-        } catch (e) {
-            if (e instanceof Error) {
-                error = e.message
-            }
+    public async execute(name:string,phone:string):Promise<Resource<Contact>> {
+        
+        if (!name) {
+            return Promise.resolve({
+                error:'ФИО не может быть пустым!'
+            });
         }
-        return error
+
+        if (!phone) {
+            return Promise.resolve({
+                error:'Введите номер телефона!'
+            });
+        }
+
+        if (!FormValidator.isPhoneValid(phone)) {
+            return Promise.resolve({
+                error:'Номер телефона введен некорректно!'
+            });
+        }
+
+        return await this.repository.createContact(name,phone)
     }
 }

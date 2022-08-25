@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import FormValidator from "../../../../../../form-validator";
-import contactsEntity from "../../../../domain/entity/contacts.entity";
+import ContactsEntity from "../../../../domain/entity/contacts.entity";
 import { CreateContactUseCase } from "../../../../domain/interactors/commands/create-contact.use-case";
 import { DeleteContactUseCase } from "../../../../domain/interactors/commands/delete-contact.use-case";
 import { UpdateContactUseCase } from "../../../../domain/interactors/commands/update-contact.use-case";
@@ -14,6 +13,8 @@ export class ContactsViewModel {
     private updateContactUseCase:UpdateContactUseCase
     private deleteContactUseCase:DeleteContactUseCase
     private searchContactsUseCase:SearchContactsUseCase
+
+    contactsEntity:ContactsEntity
 
     error:string = ''
     search:string = ''
@@ -32,39 +33,62 @@ export class ContactsViewModel {
         this.updateContactUseCase = updateContactUseCase
         this.deleteContactUseCase = deleteContactUseCase
         this.searchContactsUseCase = searchContactsUseCase
+
+        this.contactsEntity = new ContactsEntity()
+
         makeAutoObservable(this)
     }
 
     async createContact() {
-        if (!this.validateForm()) {
-            alert(this.error)
-            this.error=''
-            return;
+        const result = await this.createContactUseCase.execute(this.name, this.phone)
+        if (result.success) {
+            this.contactsEntity.create(result.success)
+            this.name = ''
+            this.phone = ''
         }
-        this.error = await this.createContactUseCase.execute(this.name, this.phone)
-        this.alertError()
-        this.name = ''
-        this.phone = ''
+        if (result.error) {
+            this.alertError(result.error)
+        }
     }
 
     async getContacts() {
-        this.error = await this.getContactsUseCase.execute()
-        this.alertError()
+        const contacts = await this.getContactsUseCase.execute()
+        if (contacts.success) {
+            this.contactsEntity.set(contacts.success)
+        }
+        if (contacts.error) {
+            this.alertError(contacts.error)
+        }
     }
 
     async updateContact(index:number) {
-        this.error = await this.updateContactUseCase.execute(index)
-        this.alertError()
+        const result = await this.updateContactUseCase.execute(this.contactsEntity.get()[index])
+        if (result.success) {
+            this.contactsEntity.update(index)
+        }
+        if (result.error) {
+            this.alertError(result.error)
+        }
     }
 
     async deleteContact(id:number) {
-        this.error = await this.deleteContactUseCase.execute(id)
-        this.alertError()
+        const result = await this.deleteContactUseCase.execute(id)
+        if (result.success) {
+            this.contactsEntity.delete(id)
+        }
+        if (result.error) {
+            this.alertError(result.error)
+        }
     }
     
     async searchContact() {
-        this.error = await this.searchContactsUseCase.execute(this.search)
-        this.alertError()
+        const contacts = await this.searchContactsUseCase.execute(this.search)
+        if (contacts.success) {
+            this.contactsEntity.set(contacts.success)
+        }
+        if (contacts.error) {
+            this.alertError(contacts.error)
+        }
     }
 
     onNewNameChanged(value: string) {
@@ -76,43 +100,21 @@ export class ContactsViewModel {
     }
 
     onNameChanged(index:number, value: string) {
-        contactsEntity.onNameChanged(index,value)
+        this.contactsEntity.onNameChanged(index,value)
     }
 
     onPhoneChanged(index:number, value: string) {
-        contactsEntity.onPhoneChanged(index,value)
+        this.contactsEntity.onPhoneChanged(index,value)
     }
 
     onSearchChanged(search: string) {
         this.search=search
     }
 
-    private validateForm = (): boolean => {
-
-        if (!this.name) {
-            this.error = 'ФИО не может быть пустым!';
-            return false;
-        }
-
-        if (!this.phone) {
-            this.error = 'Введите номер телефона!';
-            return false;
-        }
-
-        if (!FormValidator.isPhoneValid(this.phone)) {
-            this.error = 'Номер телефона введен некорректно!';
-            return false;
-        }
-
-        this.error = ''
-        return true
-    }
-
-    private alertError() {
-        if (this.error) {
-            alert(this.error)
-            this.error=''
-        }
+    private alertError(error:string) {
+        this.error = error
+        alert(this.error)
+        this.error=''
     }
 
 }

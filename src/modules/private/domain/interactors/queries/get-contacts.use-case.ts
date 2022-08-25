@@ -1,4 +1,5 @@
-import contactsEntity from "../../entity/contacts.entity"
+import { Resource } from "../../../../../util/resource"
+import { Contact } from "../../models/contact.model"
 import { ContactsRepository } from "../../repository/contacts.repository"
 
 export class GetContactsUseCase {
@@ -9,16 +10,7 @@ export class GetContactsUseCase {
         this.repository=repository
     }
 
-    public async execute():Promise<string> {
-        let error = ''
-        try {
-            const contacts = await this.repository.getContacts()
-            contactsEntity.set(contacts)
-        } catch (e) {
-            if (e instanceof Error) {
-                error = e.message
-            }
-        }
-        return error
+    public async execute():Promise<Resource<Contact[]>> {
+        return await this.repository.getContacts()
     }
 }

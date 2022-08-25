@@ -42,5 +42,4 @@ class ContactsEntity {
 
 }
 
-const contactsEntity = new ContactsEntity()
-export default contactsEntity
+export default ContactsEntity

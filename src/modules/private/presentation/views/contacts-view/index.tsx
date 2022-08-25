@@ -3,7 +3,6 @@ import { observer } from 'mobx-react'
 import { ContactsViewModel } from './view-model/contacts.view-model'
 import { ContactsRepositoryImpl } from '../../../data/repository/contacts.repository.impl';
 import { GetContactsUseCase } from '../../../domain/interactors/queries/get-contacts.use-case';
-import contactsEntity from '../../../domain/entity/contacts.entity';
 import { CreateContactUseCase } from '../../../domain/interactors/commands/create-contact.use-case';
 import { DeleteContactUseCase } from '../../../domain/interactors/commands/delete-contact.use-case';
 import { UpdateContactUseCase } from '../../../domain/interactors/commands/update-contact.use-case';
@@ -45,7 +44,7 @@ export default class ContactsView extends React.Component {
 
     public render() {
 
-        const {search,name,phone} = this.viewModel
+        const {contactsEntity, search,name,phone} = this.viewModel
 
         const createContact = () => {
             this.viewModel.createContact()

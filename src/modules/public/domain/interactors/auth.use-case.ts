@@ -1,4 +1,6 @@
-import authStore from "../../../../store/auth.store"
+import authStore from "../../../../store/auth.store";
+import { ErrorMessages } from "../../../../util/error-messages";
+import { Resource } from "../../../../util/resource";
 import { AuthRepository } from "../repository/auth.repository"
 
 export class AuthUseCase {
@@ -9,16 +11,26 @@ export class AuthUseCase {
         this.repository=repository
     }
 
-    public async execute(login:string, password:string):Promise<string> {
-        let error = ''
-        try {
-            const auth = await this.repository.signIn(login,password)
-            authStore.signIn(auth)
-        } catch (e) {
-            if (e instanceof Error) {
-                error = e.message
-            }
+    public async execute(email:string, password:string):Promise<Resource<string>> {
+        
+        if (!email) {
+            return Promise.resolve({
+                error: ErrorMessages.EmailEmpty,
+            });
         }
-        return error
+
+        if (!password) {
+            return Promise.resolve({
+                error: ErrorMessages.PasswordEmpty,
+            });
+        }
+
+        const auth = await this.repository.signIn(email,password)
+
+        if (auth.success) {
+            authStore.signIn(auth.success)
+        } 
+        
+        return auth
     }
 }
