@@ -26,8 +26,8 @@ export class AuthViewModel {
     }
 
     async onClickSignIn() {
-        const auth = await this.authUseCase.execute(this.email, this.password)
-        if(auth.error) {
+        const result = await this.authUseCase.execute(this.email, this.password)
+        if(result.error) {
             this.error = auth.error
         }
     }

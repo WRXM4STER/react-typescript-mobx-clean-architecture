@@ -52,12 +52,12 @@ export class ContactsViewModel {
     }
 
     async getContacts() {
-        const contacts = await this.getContactsUseCase.execute()
-        if (contacts.success) {
-            this.contactsEntity.set(contacts.success)
+        const result = await this.getContactsUseCase.execute()
+        if (result.success) {
+            this.contactsEntity.set(result.success)
         }
-        if (contacts.error) {
-            this.alertError(contacts.error)
+        if (result.error) {
+            this.alertError(result.error)
         }
     }
 
@@ -82,12 +82,12 @@ export class ContactsViewModel {
     }
     
     async searchContact() {
-        const contacts = await this.searchContactsUseCase.execute(this.search)
-        if (contacts.success) {
-            this.contactsEntity.set(contacts.success)
+        const result = await this.searchContactsUseCase.execute(this.search)
+        if (result.success) {
+            this.contactsEntity.set(result.success)
         }
-        if (contacts.error) {
-            this.alertError(contacts.error)
+        if (result.error) {
+            this.alertError(result.error)
         }
     }
 
