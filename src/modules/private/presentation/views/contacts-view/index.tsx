@@ -2,11 +2,11 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { ContactsViewModel } from './view-model/contacts.view-model'
 import { ContactsRepositoryImpl } from '../../../infrastructure/repository/contacts.repository.impl';
-import { GetContactsUseCase } from '../../../core/interactors/queries/get-contacts.use-case';
-import { CreateContactUseCase } from '../../../core/interactors/commands/create-contact.use-case';
-import { DeleteContactUseCase } from '../../../core/interactors/commands/delete-contact.use-case';
-import { UpdateContactUseCase } from '../../../core/interactors/commands/update-contact.use-case';
-import { SearchContactsUseCase } from '../../../core/interactors/queries/search-contacts.use-case';
+import { GetContactsUseCase } from '../../../core/application/interactors/queries/get-contacts.use-case';
+import { CreateContactUseCase } from '../../../core/application/interactors/commands/create-contact.use-case';
+import { DeleteContactUseCase } from '../../../core/application/interactors/commands/delete-contact.use-case';
+import { UpdateContactUseCase } from '../../../core/application/interactors/commands/update-contact.use-case';
+import { SearchContactsUseCase } from '../../../core/application/interactors/queries/search-contacts.use-case';
 import { WrapperComponent } from '../../../../../ui-kit-mini/components/wrapper/wrapper.component';
 import { InputComponent } from '../../../../../ui-kit-mini/controls/input.component/input.component';
 import { ButtonComponent } from '../../../../../ui-kit-mini/controls/button.component/button.component';

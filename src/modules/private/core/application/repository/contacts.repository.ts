@@ -1,6 +1,7 @@
-import { Resource } from "../../../../util/resource";
-import { ContactData } from "../dto/contact-data.model";
-import { Contact } from "../models/contact.model";
+import { Resource } from "../../../../../util/resource";
+import { ContactData } from "../../domain/dto/contact-data.model";
+import { Contact } from "../../domain/models/contact.model";
+
 
 export abstract class ContactsRepository {
    
