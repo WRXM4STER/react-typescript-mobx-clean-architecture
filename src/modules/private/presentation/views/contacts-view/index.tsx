@@ -8,8 +8,8 @@ import { DeleteContactUseCase } from '../../../core/application/interactors/comm
 import { UpdateContactUseCase } from '../../../core/application/interactors/commands/update-contact.use-case';
 import { SearchContactsUseCase } from '../../../core/application/interactors/queries/search-contacts.use-case';
 import { WrapperComponent } from '../../../../../ui-kit-mini/components/wrapper/wrapper.component';
-import { InputComponent } from '../../../../../ui-kit-mini/controls/input.component/input.component';
-import { ButtonComponent } from '../../../../../ui-kit-mini/controls/button.component/button.component';
+import { InputComponent } from '../../../../../ui-kit-mini/controls/input/input.component';
+import { ButtonComponent } from '../../../../../ui-kit-mini/controls/button/button.component';
 import authStore from '../../../../../store/auth.store';
 
 @observer

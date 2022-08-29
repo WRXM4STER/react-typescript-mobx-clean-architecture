@@ -4,8 +4,8 @@ import { AuthViewModel } from './view-model/auth.view-model'
 import { AuthUseCase } from '../../../core/interactors/auth.use-case';
 import { AuthRepositoryImpl } from '../../../infrastructure/repository/auth.repository.impl';
 import { FormComponent } from '../../components/form.component/form.component';
-import { ButtonComponent } from '../../../../../ui-kit-mini/controls/button.component/button.component';
-import { InputComponent } from '../../../../../ui-kit-mini/controls/input.component/input.component';
+import { ButtonComponent } from '../../../../../ui-kit-mini/controls/button/button.component';
+import { InputComponent } from '../../../../../ui-kit-mini/controls/input/input.component';
 import { WrapperComponent } from '../../../../../ui-kit-mini/components/wrapper/wrapper.component';
 
 @observer
