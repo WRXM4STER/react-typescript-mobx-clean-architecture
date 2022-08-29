@@ -1,10 +1,10 @@
 import { makeAutoObservable } from "mobx";
-import ContactsEntity from "../../../../domain/entity/contacts.entity";
-import { CreateContactUseCase } from "../../../../domain/interactors/commands/create-contact.use-case";
-import { DeleteContactUseCase } from "../../../../domain/interactors/commands/delete-contact.use-case";
-import { UpdateContactUseCase } from "../../../../domain/interactors/commands/update-contact.use-case";
-import { GetContactsUseCase } from "../../../../domain/interactors/queries/get-contacts.use-case";
-import { SearchContactsUseCase } from "../../../../domain/interactors/queries/search-contacts.use-case";
+import ContactsEntity from "../../../../core/entity/contacts.entity";
+import { CreateContactUseCase } from "../../../../core/interactors/commands/create-contact.use-case";
+import { DeleteContactUseCase } from "../../../../core/interactors/commands/delete-contact.use-case";
+import { UpdateContactUseCase } from "../../../../core/interactors/commands/update-contact.use-case";
+import { GetContactsUseCase } from "../../../../core/interactors/queries/get-contacts.use-case";
+import { SearchContactsUseCase } from "../../../../core/interactors/queries/search-contacts.use-case";
 
 export class ContactsViewModel {
 

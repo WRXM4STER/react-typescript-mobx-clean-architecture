@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { AuthUseCase } from "../../../../domain/interactors/auth.use-case";
+import { AuthUseCase } from "../../../../core/interactors/auth.use-case";
 
 export class AuthViewModel {
 
@@ -28,7 +28,7 @@ export class AuthViewModel {
     async onClickSignIn() {
         const result = await this.authUseCase.execute(this.email, this.password)
         if(result.error) {
-            this.error = auth.error
+            this.error = result.error
         }
     }
 

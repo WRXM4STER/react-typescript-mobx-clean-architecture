@@ -1,9 +1,9 @@
 import { baseClient } from "../../../../base-client";
 import { ErrorMessages } from "../../../../util/error-messages";
 import { Resource } from "../../../../util/resource";
-import { Contact } from "../../domain/models/contact.model";
-import { ContactsRepository } from "../../domain/repository/contacts.repository";
-import { ContactData } from "./models/contact-data.model";
+import { ContactData } from "../../core/dto/contact-data.model";
+import { Contact } from "../../core/models/contact.model";
+import { ContactsRepository } from "../../core/repository/contacts.repository";
 
 export class ContactsRepositoryImpl extends ContactsRepository {
 

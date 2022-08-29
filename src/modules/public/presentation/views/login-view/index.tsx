@@ -1,8 +1,8 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { AuthViewModel } from './view-model/auth.view-model'
-import { AuthUseCase } from '../../../domain/interactors/auth.use-case';
-import { AuthRepositoryImpl } from '../../../data/repository/auth.repository.impl';
+import { AuthUseCase } from '../../../core/interactors/auth.use-case';
+import { AuthRepositoryImpl } from '../../../infrastructure/repository/auth.repository.impl';
 import { FormComponent } from '../../components/form.component/form.component';
 import { ButtonComponent } from '../../../../../ui-kit-mini/controls/button.component/button.component';
 import { InputComponent } from '../../../../../ui-kit-mini/controls/input.component/input.component';

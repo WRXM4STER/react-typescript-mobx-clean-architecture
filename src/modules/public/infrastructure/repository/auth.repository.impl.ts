@@ -1,7 +1,7 @@
 import { baseClient } from "../../../../base-client";
 import { ErrorMessages } from "../../../../util/error-messages";
 import { Resource } from "../../../../util/resource";
-import { AuthRepository } from "../../domain/repository/auth.repository"
+import { AuthRepository } from "../../core/repository/auth.repository"
 
 import { UserData } from "./models/user-data.model";
 
