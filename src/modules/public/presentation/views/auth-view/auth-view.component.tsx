@@ -1,27 +1,17 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { AuthViewModel } from './view-model/auth.view-model'
-import { AuthUseCase } from '../../../core/interactors/auth.use-case';
-import { AuthRepositoryImpl } from '../../../infrastructure/repository/auth.repository.impl';
+import { AuthViewModel } from './auth-view.model'
 import { FormComponent } from '../../components/form.component/form.component';
 import { ButtonComponent } from '../../../../../ui-kit-mini/controls/button/button.component';
 import { InputComponent } from '../../../../../ui-kit-mini/controls/input/input.component';
 import { WrapperComponent } from '../../../../../ui-kit-mini/components/wrapper/wrapper.component';
 
+interface AuthViewProps {
+    viewModel:AuthViewModel
+}
+
 @observer
-export default class LoginView extends React.Component {
-
-    private authViewModel: AuthViewModel;
-
-    constructor(props:any) {
-        super(props)
-        //data
-        const authRepository = new AuthRepositoryImpl()
-        //domain
-        const authUseCase = new AuthUseCase(authRepository) 
-        //presentation
-        this.authViewModel = new AuthViewModel(authUseCase)
-    }
+export default class AuthViewComponent extends React.Component<AuthViewProps> {
 
     componentDidMount() {
         document.title = "Вход в систему";    
@@ -32,11 +22,11 @@ export default class LoginView extends React.Component {
             email,
             password,
             error
-        } = this.authViewModel;
+        } = this.props.viewModel;
 
         const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
-            this.authViewModel.onClickSignIn()
+            this.props.viewModel.onClickSignIn()
         }
 
         return (
@@ -49,7 +39,7 @@ export default class LoginView extends React.Component {
                         placeholder='Логин' 
                         value={email}
                         onChange={(e: React.FormEvent<HTMLInputElement>): void => {
-                            this.authViewModel.onEmailChanged(e.currentTarget.value);
+                            this.props.viewModel.onEmailChanged(e.currentTarget.value);
                         }}
                     />
                     <InputComponent 
@@ -57,7 +47,7 @@ export default class LoginView extends React.Component {
                         placeholder='Пароль'
                         value={password}
                         onChange={(e: React.FormEvent<HTMLInputElement>): void => {
-                            this.authViewModel.onPasswordChanged(e.currentTarget.value);
+                            this.props.viewModel.onPasswordChanged(e.currentTarget.value);
                         }}
                     />
                     <ButtonComponent type="submit">Войти</ButtonComponent>
