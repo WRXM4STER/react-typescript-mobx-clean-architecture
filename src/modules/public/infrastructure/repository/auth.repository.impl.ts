@@ -1,6 +1,6 @@
-import { baseClient } from "../../../../core/api/base-client";
-import { ErrorMessages } from "../../../../core/utils/error-messages";
-import { Resource } from "../../../../core/utils/resource";
+import { baseClient } from "../../../../core/application/api/base-client";
+import { ErrorMessages } from "../../../../core/application/utils/error-messages";
+import { Resource } from "../../../../core/application/utils/resource";
 
 
 import { AuthRepository } from "../../core/repository/auth.repository"

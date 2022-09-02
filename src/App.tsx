@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import authEntity from './core/entities/auth.entity';
+import authEntity from './core/domain/entities/auth.entity';
 import PrivateModule from './modules/private';
 import PublicModule from './modules/public';
 

@@ -4,7 +4,7 @@ import { ContactsViewModel } from './contacts-view.model'
 import { WrapperComponent } from '../../../../../core/ui-kit-mini/components/wrapper/wrapper.component';
 import { InputComponent } from '../../../../../core/ui-kit-mini/controls/input/input.component';
 import { ButtonComponent } from '../../../../../core/ui-kit-mini/controls/button/button.component';
-import authEntity from '../../../../../core/entities/auth.entity';
+import authEntity from '../../../../../core/domain/entities/auth.entity';
 
 
 interface ContactsViewProps {

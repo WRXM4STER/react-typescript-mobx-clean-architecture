@@ -1,4 +1,4 @@
-import { Resource } from "../../../../../../core/utils/resource"
+import { Resource } from "../../../../../../core/application/utils/resource"
 import { ContactsRepository } from "../../repository/contacts.repository"
 
 export class DeleteContactUseCase {
