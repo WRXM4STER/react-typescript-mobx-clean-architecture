@@ -2,9 +2,10 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { AuthViewModel } from './auth-view.model'
 import { FormComponent } from '../../components/form.component/form.component';
-import { ButtonComponent } from '../../../../../ui-kit-mini/controls/button/button.component';
-import { InputComponent } from '../../../../../ui-kit-mini/controls/input/input.component';
-import { WrapperComponent } from '../../../../../ui-kit-mini/components/wrapper/wrapper.component';
+import { ButtonComponent } from '../../../../../core/ui-kit-mini/controls/button/button.component';
+import { WrapperComponent } from '../../../../../core/ui-kit-mini/components/wrapper/wrapper.component';
+import { InputComponent } from '../../../../../core/ui-kit-mini/controls/input/input.component';
+
 
 interface AuthViewProps {
     viewModel:AuthViewModel

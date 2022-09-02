@@ -2,20 +2,21 @@ import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import authEntity from './core/entities/auth.entity';
 import PrivateModule from './modules/private';
 import PublicModule from './modules/public';
-import authStore from './store/auth.store';
+
 
 const App:React.FC = observer(() => {
 
   useEffect(()=>{
-    authStore.isAuth()
+    authEntity.isAuth()
   },[])
 
   return (
     <BrowserRouter>
       {
-        authStore.getAccessToken() ? <PrivateModule/> : <PublicModule/>
+        authEntity.getAccessToken() ? <PrivateModule/> : <PublicModule/>
       }
     </BrowserRouter>
   );

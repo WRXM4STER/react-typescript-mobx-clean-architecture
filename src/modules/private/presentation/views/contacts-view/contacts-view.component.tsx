@@ -1,10 +1,11 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { ContactsViewModel } from './contacts-view.model'
-import { WrapperComponent } from '../../../../../ui-kit-mini/components/wrapper/wrapper.component';
-import { InputComponent } from '../../../../../ui-kit-mini/controls/input/input.component';
-import { ButtonComponent } from '../../../../../ui-kit-mini/controls/button/button.component';
-import authStore from '../../../../../store/auth.store';
+import { WrapperComponent } from '../../../../../core/ui-kit-mini/components/wrapper/wrapper.component';
+import { InputComponent } from '../../../../../core/ui-kit-mini/controls/input/input.component';
+import { ButtonComponent } from '../../../../../core/ui-kit-mini/controls/button/button.component';
+import authEntity from '../../../../../core/entities/auth.entity';
+
 
 interface ContactsViewProps {
     viewModel:ContactsViewModel
@@ -119,7 +120,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                         }
                     </tbody>
                 </table>
-                <ButtonComponent type="button" variant='danger' className='absolute right-0 top-0 m-1' onClick={()=>authStore.signOut()}>Выход</ButtonComponent>
+                <ButtonComponent type="button" variant='danger' className='absolute right-0 top-0 m-1' onClick={()=>authEntity.signOut()}>Выход</ButtonComponent>
             </WrapperComponent>
         )
 

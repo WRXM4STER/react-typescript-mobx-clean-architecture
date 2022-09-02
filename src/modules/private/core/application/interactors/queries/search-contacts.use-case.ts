@@ -1,4 +1,4 @@
-import { Resource } from "../../../../../../util/resource"
+import { Resource } from "../../../../../../core/utils/resource"
 import { Contact } from "../../../domain/models/contact.model"
 import { ContactsRepository } from "../../repository/contacts.repository"
 

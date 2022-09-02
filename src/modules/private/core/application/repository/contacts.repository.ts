@@ -1,4 +1,4 @@
-import { Resource } from "../../../../../util/resource";
+import { Resource } from "../../../../../core/utils/resource";
 import { ContactData } from "../../domain/dto/contact-data.model";
 import { Contact } from "../../domain/models/contact.model";
 

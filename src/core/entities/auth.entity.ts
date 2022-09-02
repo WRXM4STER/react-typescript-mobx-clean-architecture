@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-class AuthStore {
+class AuthEntity {
 
     private storage_name:string='auth'
 
@@ -40,5 +40,5 @@ class AuthStore {
 
 }
 
-const authStore = new AuthStore()
-export default authStore
+const authEntity = new AuthEntity()
+export default authEntity

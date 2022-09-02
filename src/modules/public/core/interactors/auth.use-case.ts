@@ -1,6 +1,6 @@
-import authStore from "../../../../store/auth.store";
-import { ErrorMessages } from "../../../../util/error-messages";
-import { Resource } from "../../../../util/resource";
+import authEntity from "../../../../core/entities/auth.entity";
+import { ErrorMessages } from "../../../../core/utils/error-messages";
+import { Resource } from "../../../../core/utils/resource";
 import { AuthRepository } from "../repository/auth.repository"
 
 export class AuthUseCase {
@@ -28,7 +28,7 @@ export class AuthUseCase {
         const auth = await this.repository.signIn(email,password)
 
         if (auth.success) {
-            authStore.signIn(auth.success)
+            authEntity.signIn(auth.success)
         } 
         
         return auth
