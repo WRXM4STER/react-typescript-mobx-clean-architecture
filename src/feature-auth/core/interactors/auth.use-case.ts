@@ -1,6 +1,6 @@
-import authEntity from "../../../../core/domain/entities/auth.entity";
-import { ErrorMessages } from "../../../../core/application/utils/error-messages";
-import { Resource } from "../../../../core/application/utils/resource";
+import authEntity from "../../../core/domain/entities/auth.entity";
+import { ErrorMessages } from "../../../core/application/utils/error-messages";
+import { Resource } from "../../../core/application/utils/resource";
 import { AuthRepository } from "../repository/auth.repository"
 
 export class AuthUseCase {
