@@ -5,7 +5,7 @@ import { AuthRepository } from "../repository/auth.repository"
 
 export class AuthUseCase {
 
-    repository: AuthRepository
+    private repository: AuthRepository
 
     constructor(repository: AuthRepository) {
         this.repository=repository
