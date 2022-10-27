@@ -1,9 +1,9 @@
+import FeatureAuth from 'feature-auth';
+import FeatureContacts from 'feature-contacts';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import authEntity from './core/domain/entities/auth.entity';
-import PrivateModule from './modules/private';
-import PublicModule from './feature-auth';
 
 
 const App:React.FC = observer(() => {
@@ -15,7 +15,7 @@ const App:React.FC = observer(() => {
   return (
     <BrowserRouter>
       {
-        authEntity.getAccessToken() ? <PrivateModule/> : <PublicModule/>
+        authEntity.getAccessToken() ? <FeatureContacts/> : <FeatureAuth/>
       }
     </BrowserRouter>
   );

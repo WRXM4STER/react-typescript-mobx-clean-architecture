@@ -1,10 +1,10 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { ContactsViewModel } from './contacts-view.model'
-import { WrapperComponent } from '../../../../../core-ui/components/wrapper/wrapper.component';
-import { InputComponent } from '../../../../../core-ui/controls/input/input.component';
-import { ButtonComponent } from '../../../../../core-ui/controls/button/button.component';
-import authEntity from '../../../../../core/domain/entities/auth.entity';
+import { WrapperComponent } from '../../../../core-ui/components/wrapper/wrapper.component';
+import { InputComponent } from '../../../../core-ui/controls/input/input.component';
+import { ButtonComponent } from '../../../../core-ui/controls/button/button.component';
+import authEntity from '../../../../core/domain/entities/auth.entity';
 
 
 interface ContactsViewProps {

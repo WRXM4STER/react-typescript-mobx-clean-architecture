@@ -1,5 +1,5 @@
-import FormValidator from "../../../../../../core/application/utils/form-validator";
-import { Resource } from "../../../../../../core/application/utils/resource";
+import FormValidator from "../../../../../core/application/utils/form-validator";
+import { Resource } from "../../../../../core/application/utils/resource";
 import { Contact } from "../../../domain/models/contact.model";
 import { ContactsRepository } from "../../repository/contacts.repository"
 

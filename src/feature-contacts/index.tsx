@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { PrivateRoutes } from "./presentation/router/private-routes";
 
-const PrivateModule:React.FC = () => {
+const FeatureContacts:React.FC = () => {
     return (
         <Routes>
             {
@@ -13,4 +13,4 @@ const PrivateModule:React.FC = () => {
     )
 }
 
-export default PrivateModule;
+export default FeatureContacts;
