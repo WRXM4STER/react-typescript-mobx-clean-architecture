@@ -30,6 +30,7 @@ export class AuthViewModel {
         if(result.error) {
             this.error = result.error
         }
+        return result
     }
 
 }

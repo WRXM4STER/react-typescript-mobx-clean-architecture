@@ -1,25 +1,30 @@
-import { observer } from 'mobx-react-lite';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import authEntity from './core/domain/entities/auth.entity';
 import FeatureAuth from 'feature-auth';
 import FeatureContacts from 'feature-contacts';
+import { observer } from 'mobx-react';
+import { AppContext } from 'core/context/app-context';
 
+@observer
+class App extends React.Component {
 
-const App:React.FC = observer(() => {
+  static contextType = AppContext;
+  context!: React.ContextType<typeof AppContext>;
 
-  useEffect(()=>{
-    authEntity.isAuth()
-  },[])
+  componentDidMount() {
+    this.context.authEntity?.isAuth()
+  }
 
-  return (
-    <BrowserRouter>
-      {
-        authEntity.getAccessToken() ? <FeatureContacts/> : <FeatureAuth/>
-      }
-    </BrowserRouter>
-  );
-  
-})
+  render() { 
+    return (
+      <BrowserRouter>
+        {
+          this.context.authEntity?.getAccessToken() ? <FeatureContacts/> : <FeatureAuth/>
+        }
+      </BrowserRouter>
+    );
+  }
+
+}
 
 export default App;

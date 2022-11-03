@@ -40,5 +40,4 @@ class AuthEntity {
 
 }
 
-const authEntity = new AuthEntity()
-export default authEntity
+export default AuthEntity

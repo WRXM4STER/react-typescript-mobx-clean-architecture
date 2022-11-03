@@ -5,6 +5,7 @@ import { FormComponent } from '../../components/form.component/form.component';
 import { ButtonComponent } from '../../../../core-ui/controls/button/button.component';
 import { WrapperComponent } from '../../../../core-ui/components/wrapper/wrapper.component';
 import { InputComponent } from '../../../../core-ui/controls/input/input.component';
+import { AppContext } from 'core/context/app-context';
 
 
 interface AuthViewProps {
@@ -13,6 +14,9 @@ interface AuthViewProps {
 
 @observer
 export default class AuthViewComponent extends React.Component<AuthViewProps> {
+
+    static contextType = AppContext;
+    context!: React.ContextType<typeof AppContext>;
 
     componentDidMount() {
         document.title = "Вход в систему";    
@@ -25,9 +29,12 @@ export default class AuthViewComponent extends React.Component<AuthViewProps> {
             error
         } = this.props.viewModel;
 
-        const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
+        const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
-            this.props.viewModel.onClickSignIn()
+            const result = await this.props.viewModel.onClickSignIn()
+            if (result.success) {
+                this.context.authEntity?.signIn(result.success)
+            }
         }
 
         return (

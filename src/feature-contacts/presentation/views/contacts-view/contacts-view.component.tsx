@@ -4,7 +4,7 @@ import { ContactsViewModel } from './contacts-view.model'
 import { WrapperComponent } from '../../../../core-ui/components/wrapper/wrapper.component';
 import { InputComponent } from '../../../../core-ui/controls/input/input.component';
 import { ButtonComponent } from '../../../../core-ui/controls/button/button.component';
-import authEntity from '../../../../core/domain/entities/auth.entity';
+import { AppContext } from 'core/context/app-context';
 
 
 interface ContactsViewProps {
@@ -14,12 +14,17 @@ interface ContactsViewProps {
 @observer
 export default class ContactsViewComponent extends React.Component<ContactsViewProps> {
 
+    static contextType = AppContext;
+    context!: React.ContextType<typeof AppContext>;
+
     componentDidMount() {
         document.title = "Контакты"; 
         this.props.viewModel.getContacts()   
     }
 
     public render() {
+
+        const {authEntity} = this.context;
 
         const {contactsEntity, search,name,phone} = this.props.viewModel
 
@@ -120,7 +125,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                         }
                     </tbody>
                 </table>
-                <ButtonComponent type="button" variant='danger' className='absolute right-0 top-0 m-1' onClick={()=>authEntity.signOut()}>Выход</ButtonComponent>
+                <ButtonComponent type="button" variant='danger' className='absolute right-0 top-0 m-1' onClick={()=>authEntity?.signOut()}>Выход</ButtonComponent>
             </WrapperComponent>
         )
 
