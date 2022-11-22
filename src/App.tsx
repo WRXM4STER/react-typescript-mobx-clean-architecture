@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import FeatureAuth from 'feature-auth';
-import FeatureContacts from 'feature-contacts';
+import FeatureAuth from 'feature/auth';
+import FeatureContacts from 'feature/contacts';
 import { observer } from 'mobx-react';
 import { AppContext } from 'core/context/app-context';
 
