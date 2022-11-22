@@ -1,8 +1,8 @@
+import { Contact } from "../../../../data/repository/models/contact.model";
 import { Resource } from "../../../../../../core/application/utils/resource"
-import { Contact } from "../../../domain/models/contact.model"
 import { ContactsRepository } from "../../repository/contacts.repository"
 
-export class GetContactsUseCase {
+export class SearchContactsUseCase {
 
     repository: ContactsRepository
 
@@ -10,7 +10,7 @@ export class GetContactsUseCase {
         this.repository=repository
     }
 
-    public async execute():Promise<Resource<Contact[]>> {
-        return await this.repository.getContacts()
+    public async execute(search:string):Promise<Resource<Contact[]>> {
+        return await this.repository.searchContacts(search)
     }
 }

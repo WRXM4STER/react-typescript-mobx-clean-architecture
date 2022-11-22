@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx"
-import { Contact } from "../models/contact.model"
+import { Contact } from "../../data/repository/models/contact.model"
 
 class ContactsEntity {
 
