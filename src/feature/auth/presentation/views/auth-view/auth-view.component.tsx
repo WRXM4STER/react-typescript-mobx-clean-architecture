@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { AuthViewModel } from './auth-view.model'
-import { FormComponent } from '../../components/form.component/form.component';
+import { FormComponent } from '../../../../../shared/components/form.component/form.component';
 import { ButtonComponent } from '../../../../../shared/controls/button/button.component';
 import { WrapperComponent } from '../../../../../shared/components/wrapper/wrapper.component';
 import { InputComponent } from '../../../../../shared/controls/input/input.component';
