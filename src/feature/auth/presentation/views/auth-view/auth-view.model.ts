@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { AuthUseCase } from "../../../core/interactors/auth.use-case";
+import { AuthUseCase } from "../../../domain/interactors/auth.use-case";
 
 export class AuthViewModel {
 
