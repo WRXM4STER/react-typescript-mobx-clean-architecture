@@ -1,9 +1,9 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { ContactsViewModel } from './contacts-view.model'
-import { WrapperComponent } from '../../../../../core-ui/components/wrapper/wrapper.component';
-import { InputComponent } from '../../../../../core-ui/controls/input/input.component';
-import { ButtonComponent } from '../../../../../core-ui/controls/button/button.component';
+import { WrapperComponent } from '../../../../../shared/components/wrapper/wrapper.component';
+import { InputComponent } from '../../../../../shared/controls/input/input.component';
+import { ButtonComponent } from '../../../../../shared/controls/button/button.component';
 import { AppContext } from 'core/context/app-context';
 
 
