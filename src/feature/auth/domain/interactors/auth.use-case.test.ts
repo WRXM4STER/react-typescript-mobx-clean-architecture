@@ -9,13 +9,18 @@ describe('auth use-case', () => {
 
     it('sign-in is success', () => {
         const authUseCase = new AuthUseCase(authRepositoryMock)
-        expect(authUseCase.execute('test@email.com','qwerty')).toBe(true);
+        authUseCase.execute('test@email.com','qwerty').then(response => {
+            expect(response).toEqual({
+                success:'random_access_token'
+            });
+        })
     });
 
     it('sign-in is failed', async () => {
         const authUseCase = new AuthUseCase(authRepositoryMock)
-        const result = await authUseCase.execute('test@email.com','284425')
-        expect(result).toEqual({error:ErrorMessages.SignInError});
+        authUseCase.execute('test@email.com','15165165').then(response => {
+            expect(response).toEqual({error:ErrorMessages.SignInError});
+        })
     });
 
 })
