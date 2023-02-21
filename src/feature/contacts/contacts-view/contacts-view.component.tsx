@@ -26,7 +26,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
 
         const {authService} = this.context;
 
-        const {contacts, search,name,phone} = this.props.viewModel
+        const {uiState} = this.props.viewModel
 
         const createContact = () => {
             this.props.viewModel.createContact()
@@ -58,7 +58,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                             <td colSpan={2}>
                                 <InputComponent 
                                     type="text"  
-                                    value={search}
+                                    value={uiState.search}
                                     placeholder="Введите фио или номер для поиска"
                                     className="w-full"
                                     onChange={(e: React.FormEvent<HTMLInputElement>): void => {
@@ -74,7 +74,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                             <td>
                                 <InputComponent
                                     type="text"  
-                                    value={name}
+                                    value={uiState.name}
                                     placeholder="Введите ФИО" 
                                     onChange={(e: React.FormEvent<HTMLInputElement>): void => {
                                         this.props.viewModel.onNewNameChanged(e.currentTarget.value);
@@ -84,7 +84,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                             <td>
                                 <InputComponent
                                     type="text" 
-                                    value={phone}
+                                    value={uiState.phone}
                                     placeholder="Введите номер"
                                     onChange={(e: React.FormEvent<HTMLInputElement>): void => {
                                         this.props.viewModel.onNewPhoneChanged(e.currentTarget.value);
@@ -96,7 +96,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                             </td>
                         </tr>
                         {
-                            contacts.map((item, index) => 
+                            uiState.contacts.map((item, index) => 
                                 <tr key={item.id}>
                                     <td>
                                         <InputComponent 

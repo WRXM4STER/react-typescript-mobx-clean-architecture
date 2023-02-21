@@ -4,7 +4,7 @@ import { DeleteContactUseCase } from "domain/contacts/commands/delete-contact.us
 import { UpdateContactUseCase } from "domain/contacts/commands/update-contact.use-case";
 import { GetContactsUseCase } from "domain/contacts/queries/get-contacts.use-case";
 import { SearchContactsUseCase } from "domain/contacts/queries/search-contacts.use-case";
-import { Contact } from "data/contacts/model/contact.model";
+import { ContactsViewState } from "./contacts-view.state";
 
 export class ContactsViewModel {
 
@@ -14,12 +14,13 @@ export class ContactsViewModel {
     private deleteContactUseCase:DeleteContactUseCase
     private searchContactsUseCase:SearchContactsUseCase
 
-    contacts:Contact[] = []
-
-    error:string = ''
-    search:string = ''
-    name:string = ''
-    phone:string = ''
+    uiState:ContactsViewState = {
+        error: "",
+        search: "",
+        name: "",
+        phone: "",
+        contacts: []
+    }
 
     public constructor(
         getContactsUseCase:GetContactsUseCase,
@@ -38,11 +39,11 @@ export class ContactsViewModel {
     }
 
     async createContact() {
-        const result = await this.createContactUseCase.execute(this.name, this.phone)
+        const result = await this.createContactUseCase.execute(this.uiState.name, this.uiState.phone)
         if (result.success) {
-            this.contacts.push(result.success)
-            this.name = ''
-            this.phone = ''
+            this.uiState.contacts.push(result.success)
+            this.uiState.name = ''
+            this.uiState.phone = ''
         }
         if (result.error) {
             this.alertError(result.error)
@@ -52,7 +53,7 @@ export class ContactsViewModel {
     async getContacts() {
         const result = await this.getContactsUseCase.execute()
         if (result.success) {
-            this.contacts = result.success
+            this.uiState.contacts = result.success
         }
         if (result.error) {
             this.alertError(result.error)
@@ -60,9 +61,9 @@ export class ContactsViewModel {
     }
 
     async updateContact(index:number) {
-        const result = await this.updateContactUseCase.execute(this.contacts[index])
+        const result = await this.updateContactUseCase.execute(this.uiState.contacts[index])
         if (result.success) {
-            this.contacts[index].is_edit=false
+            this.uiState.contacts[index].is_edit=false
         }
         if (result.error) {
             this.alertError(result.error)
@@ -72,8 +73,8 @@ export class ContactsViewModel {
     async deleteContact(id:number) {
         const result = await this.deleteContactUseCase.execute(id)
         if (result.success) {
-            let index = this.contacts.findIndex(item => item.id === id);
-            if (index >= 0) this.contacts.splice(index, 1);
+            let index = this.uiState.contacts.findIndex(item => item.id === id);
+            if (index >= 0) this.uiState.contacts.splice(index, 1);
         }
         if (result.error) {
             this.alertError(result.error)
@@ -81,9 +82,9 @@ export class ContactsViewModel {
     }
     
     async searchContact() {
-        const result = await this.searchContactsUseCase.execute(this.search)
+        const result = await this.searchContactsUseCase.execute(this.uiState.search)
         if (result.success) {
-            this.contacts = result.success
+            this.uiState.contacts = result.success
         }
         if (result.error) {
             this.alertError(result.error)
@@ -91,31 +92,31 @@ export class ContactsViewModel {
     }
 
     onNewNameChanged(value: string) {
-        this.name=value
+        this.uiState.name=value
     }
 
     onNewPhoneChanged(value: string) {
-        this.phone=value
+        this.uiState.phone=value
     }
 
     onNameChanged(index:number, value: string) {
-        this.contacts[index].name = value
-        this.contacts[index].is_edit = true
+        this.uiState.contacts[index].name = value
+        this.uiState.contacts[index].is_edit = true
     }
 
     onPhoneChanged(index:number, value: string) {
-        this.contacts[index].phone = value
-        this.contacts[index].is_edit = true
+        this.uiState.contacts[index].phone = value
+        this.uiState.contacts[index].is_edit = true
     }
 
     onSearchChanged(search: string) {
-        this.search=search
+        this.uiState.search=search
     }
 
     private alertError(error:string) {
-        this.error = error
-        alert(this.error)
-        this.error=''
+        this.uiState.error = error
+        alert(this.uiState.error)
+        this.uiState.error=''
     }
 
 }

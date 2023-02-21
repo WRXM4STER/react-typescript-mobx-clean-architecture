@@ -23,11 +23,7 @@ export default class AuthViewComponent extends React.Component<AuthViewProps> {
     }
 
     public render() {
-        const {
-            email,
-            password,
-            error
-        } = this.props.viewModel;
+        const {uiState} = this.props.viewModel;
 
         const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
@@ -41,11 +37,11 @@ export default class AuthViewComponent extends React.Component<AuthViewProps> {
             <WrapperComponent>
                 <FormComponent onSubmit={submitForm}>
                     <h1>Вход в систему</h1>
-                    <h2 className="text-red-500">{error}</h2>
+                    <h2 className="text-red-500">{uiState.error}</h2>
                     <InputComponent
                         type="text" 
                         placeholder='Логин' 
-                        value={email}
+                        value={uiState.email}
                         onChange={(e: React.FormEvent<HTMLInputElement>): void => {
                             this.props.viewModel.onEmailChanged(e.currentTarget.value);
                         }}
@@ -53,7 +49,7 @@ export default class AuthViewComponent extends React.Component<AuthViewProps> {
                     <InputComponent 
                         type="text" 
                         placeholder='Пароль'
-                        value={password}
+                        value={uiState.password}
                         onChange={(e: React.FormEvent<HTMLInputElement>): void => {
                             this.props.viewModel.onPasswordChanged(e.currentTarget.value);
                         }}
