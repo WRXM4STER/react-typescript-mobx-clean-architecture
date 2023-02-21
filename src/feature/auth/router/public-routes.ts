@@ -1,6 +1,6 @@
 import { RouteModel } from "core/model/route.model";
 import { PublicRouteNames } from "./public-route-names";
-import AuthView from "../views/auth-view";
+import AuthView from "../auth-view";
 
 export const PublicRoutes: RouteModel[] = [
     {
