@@ -1,4 +1,4 @@
-import AuthEntity from "core/domain/entities/auth.entity";
+import AuthEntity from "data/auth/service/auth.service";
 import { createContext } from "react";
 
 interface IAppContext {

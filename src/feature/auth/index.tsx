@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { PublicRoutes } from "./presentation/router/public-routes"
+import { PublicRoutes } from "./router/public-routes"
 
 const FeatureAuth:React.FC = () => {
     return (

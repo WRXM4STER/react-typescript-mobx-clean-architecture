@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { PrivateRoutes } from "./presentation/router/private-routes";
+import { PrivateRoutes } from "./router/private-routes";
 
 const FeatureContacts:React.FC = () => {
     return (
