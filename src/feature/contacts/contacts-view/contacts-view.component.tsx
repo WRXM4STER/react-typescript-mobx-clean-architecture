@@ -26,7 +26,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
 
         const {authService} = this.context;
 
-        const {contactsEntity, search,name,phone} = this.props.viewModel
+        const {contacts, search,name,phone} = this.props.viewModel
 
         const createContact = () => {
             this.props.viewModel.createContact()
@@ -96,7 +96,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                             </td>
                         </tr>
                         {
-                            contactsEntity.get().map((item, index) => 
+                            contacts.map((item, index) => 
                                 <tr key={item.id}>
                                     <td>
                                         <InputComponent 

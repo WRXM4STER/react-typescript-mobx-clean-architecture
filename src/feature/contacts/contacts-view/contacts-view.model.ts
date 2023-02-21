@@ -1,10 +1,10 @@
 import { makeAutoObservable } from "mobx";
-import ContactsEntity from "data/contacts/service/contacts.entity";
 import { CreateContactUseCase } from "domain/contacts/commands/create-contact.use-case";
 import { DeleteContactUseCase } from "domain/contacts/commands/delete-contact.use-case";
 import { UpdateContactUseCase } from "domain/contacts/commands/update-contact.use-case";
 import { GetContactsUseCase } from "domain/contacts/queries/get-contacts.use-case";
 import { SearchContactsUseCase } from "domain/contacts/queries/search-contacts.use-case";
+import { Contact } from "data/contacts/repository/model/contact.model";
 
 export class ContactsViewModel {
 
@@ -14,7 +14,7 @@ export class ContactsViewModel {
     private deleteContactUseCase:DeleteContactUseCase
     private searchContactsUseCase:SearchContactsUseCase
 
-    contactsEntity:ContactsEntity
+    contacts:Contact[] = []
 
     error:string = ''
     search:string = ''
@@ -34,15 +34,13 @@ export class ContactsViewModel {
         this.deleteContactUseCase = deleteContactUseCase
         this.searchContactsUseCase = searchContactsUseCase
 
-        this.contactsEntity = new ContactsEntity()
-
         makeAutoObservable(this)
     }
 
     async createContact() {
         const result = await this.createContactUseCase.execute(this.name, this.phone)
         if (result.success) {
-            this.contactsEntity.create(result.success)
+            this.contacts.push(result.success)
             this.name = ''
             this.phone = ''
         }
@@ -54,7 +52,7 @@ export class ContactsViewModel {
     async getContacts() {
         const result = await this.getContactsUseCase.execute()
         if (result.success) {
-            this.contactsEntity.set(result.success)
+            this.contacts = result.success
         }
         if (result.error) {
             this.alertError(result.error)
@@ -62,9 +60,9 @@ export class ContactsViewModel {
     }
 
     async updateContact(index:number) {
-        const result = await this.updateContactUseCase.execute(this.contactsEntity.get()[index])
+        const result = await this.updateContactUseCase.execute(this.contacts[index])
         if (result.success) {
-            this.contactsEntity.update(index)
+            this.contacts[index].is_edit=false
         }
         if (result.error) {
             this.alertError(result.error)
@@ -74,7 +72,8 @@ export class ContactsViewModel {
     async deleteContact(id:number) {
         const result = await this.deleteContactUseCase.execute(id)
         if (result.success) {
-            this.contactsEntity.delete(id)
+            let index = this.contacts.findIndex(item => item.id === id);
+            if (index >= 0) this.contacts.splice(index, 1);
         }
         if (result.error) {
             this.alertError(result.error)
@@ -84,7 +83,7 @@ export class ContactsViewModel {
     async searchContact() {
         const result = await this.searchContactsUseCase.execute(this.search)
         if (result.success) {
-            this.contactsEntity.set(result.success)
+            this.contacts = result.success
         }
         if (result.error) {
             this.alertError(result.error)
@@ -100,11 +99,13 @@ export class ContactsViewModel {
     }
 
     onNameChanged(index:number, value: string) {
-        this.contactsEntity.onNameChanged(index,value)
+        this.contacts[index].name = value
+        this.contacts[index].is_edit = true
     }
 
     onPhoneChanged(index:number, value: string) {
-        this.contactsEntity.onPhoneChanged(index,value)
+        this.contacts[index].phone = value
+        this.contacts[index].is_edit = true
     }
 
     onSearchChanged(search: string) {

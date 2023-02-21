@@ -1,7 +1,7 @@
 import { baseClient } from "shared/api/base-client";
 
 import { ContactData } from "./dto/contact-data.model";
-import { ContactsRepository } from "data/contacts/repository/contacts.repository";
+import { ContactsRepository } from "data/contacts/contacts.repository";
 import { Resource } from "core/common/resource";
 import { ErrorMessages } from "core/common/error-messages";
 import { Contact } from "./model/contact.model";

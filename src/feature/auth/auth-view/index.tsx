@@ -1,5 +1,5 @@
 import { AuthUseCase } from "domain/auth/auth.use-case"
-import { AuthRepositoryImpl } from "data/auth/repository/auth.repository.impl"
+import { AuthRepositoryImpl } from "data/auth/auth.repository.impl"
 import AuthViewComponent from "./auth-view.component"
 import { AuthViewModel } from "./auth-view.model"
 

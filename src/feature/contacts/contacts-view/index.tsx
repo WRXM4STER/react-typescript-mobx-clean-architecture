@@ -3,7 +3,7 @@ import { DeleteContactUseCase } from "domain/contacts/commands/delete-contact.us
 import { UpdateContactUseCase } from "domain/contacts/commands/update-contact.use-case"
 import { GetContactsUseCase } from "domain/contacts/queries/get-contacts.use-case"
 import { SearchContactsUseCase } from "domain/contacts/queries/search-contacts.use-case"
-import { ContactsRepositoryImpl } from "data/contacts/repository/contacts.repository.impl"
+import { ContactsRepositoryImpl } from "data/contacts/contacts.repository.impl"
 import ContactsViewComponent from "./contacts-view.component"
 import { ContactsViewModel } from "./contacts-view.model"
 

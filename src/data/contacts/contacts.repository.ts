@@ -1,6 +1,6 @@
-import { Contact } from "data/contacts/repository/model/contact.model";
+import { Contact } from "data/contacts/model/contact.model";
 import { Resource } from "core/common/resource";
-import { ContactData } from "data/contacts/repository/dto/contact-data.model";
+import { ContactData } from "data/contacts/dto/contact-data.model";
 
 export abstract class ContactsRepository {
    
