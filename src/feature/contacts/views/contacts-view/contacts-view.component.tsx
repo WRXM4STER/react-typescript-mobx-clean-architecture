@@ -24,7 +24,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
 
     public render() {
 
-        const {authEntity} = this.context;
+        const {authService} = this.context;
 
         const {contactsEntity, search,name,phone} = this.props.viewModel
 
@@ -125,7 +125,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                         }
                     </tbody>
                 </table>
-                <ButtonComponent type="button" variant='danger' className='absolute right-0 top-0 m-1' onClick={()=>authEntity?.signOut()}>Выход</ButtonComponent>
+                <ButtonComponent type="button" variant='danger' className='absolute right-0 top-0 m-1' onClick={()=>authService?.signOut()}>Выход</ButtonComponent>
             </WrapperComponent>
         )
 

@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AuthEntity from 'data/auth/service/auth.service';
+import AuthService from 'core/service/auth.service';
 import { AppContext } from 'core/context/app-context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const authEntity = new AuthEntity()
+const authService = new AuthService()
 
 root.render(
   <React.StrictMode>
-    <AppContext.Provider value={{authEntity}}>
+    <AppContext.Provider value={{authService}}>
       <App />
     </AppContext.Provider>
   </React.StrictMode>

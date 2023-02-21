@@ -33,7 +33,7 @@ export default class AuthViewComponent extends React.Component<AuthViewProps> {
             event.preventDefault();
             const result = await this.props.viewModel.onClickSignIn()
             if (result.success) {
-                this.context.authEntity?.signIn(result.success)
+                this.context.authService?.signIn(result.success)
             }
         }
 
