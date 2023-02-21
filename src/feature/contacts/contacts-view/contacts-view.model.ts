@@ -4,7 +4,7 @@ import { DeleteContactUseCase } from "domain/contacts/commands/delete-contact.us
 import { UpdateContactUseCase } from "domain/contacts/commands/update-contact.use-case";
 import { GetContactsUseCase } from "domain/contacts/queries/get-contacts.use-case";
 import { SearchContactsUseCase } from "domain/contacts/queries/search-contacts.use-case";
-import { Contact } from "data/contacts/repository/model/contact.model";
+import { Contact } from "data/contacts/model/contact.model";
 
 export class ContactsViewModel {
 
