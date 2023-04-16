@@ -1,6 +1,6 @@
-import {describe, expect, test} from '@jest/globals';
-import { ErrorMessages } from 'core/common/error-messages/error-messages';
-import { AuthRepositoryMockImpl } from 'data/auth/auth.repository.mock';
+import { describe, expect } from '@jest/globals';
+import { ErrorMessages } from 'core';
+import { AuthRepositoryMockImpl } from 'data';
 import { AuthUseCase } from './auth.use-case';
 
 describe('auth use-case', () => {

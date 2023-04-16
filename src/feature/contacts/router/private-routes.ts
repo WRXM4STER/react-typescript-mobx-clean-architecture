@@ -1,6 +1,6 @@
 import { PrivateRouteNames } from "./private-route-names";
 import ContactsView from "../contacts-view";
-import { RouteModel } from "core/model/route.model";
+import { RouteModel } from "core";
 
 export const PrivateRoutes: RouteModel[] = [
     {

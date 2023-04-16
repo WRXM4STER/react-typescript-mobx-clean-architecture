@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-class AuthService {
+export class AuthService {
 
     private storage_name:string='auth'
 
@@ -39,5 +39,3 @@ class AuthService {
     }
 
 }
-
-export default AuthService

@@ -1,4 +1,4 @@
-export default class FormValidator {
+export class FormValidator {
 
     static isEmailValid (email: string): boolean {
         const emailRegex = /^\S+@\S+\.\w{2,3}$/;

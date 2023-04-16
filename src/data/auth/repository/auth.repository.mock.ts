@@ -1,8 +1,6 @@
-import { baseClient } from "shared/api/base-client";
-import { ErrorMessages } from "core/common/error-messages/error-messages";
-import { Resource } from "core/common/resource/resource";
-import { AuthRepository } from "data/auth/auth.repository"
-import { UserData } from "./model/user-data.model";
+import { ErrorMessages } from "core";
+import { Resource } from "core";
+import { AuthRepository } from "./auth.repository"
 
 export class AuthRepositoryMockImpl implements AuthRepository {
 

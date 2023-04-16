@@ -1,11 +1,11 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { AuthViewModel } from './auth-view.model'
-import { FormComponent } from 'shared/ui/form/form.component';
-import { ButtonComponent } from 'shared/ui/button/button.component';
-import { WrapperComponent } from 'shared/ui/wrapper/wrapper.component';
-import { InputComponent } from 'shared/ui/input/input.component';
-import { AppContext } from 'core/context/app-context';
+import { FormComponent } from 'shared';
+import { ButtonComponent } from 'shared';
+import { WrapperComponent } from 'shared';
+import { InputComponent } from 'shared';
+import { AppContext } from 'core';
 
 
 interface AuthViewProps {

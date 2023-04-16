@@ -1,9 +1,11 @@
 import { makeAutoObservable } from "mobx";
-import { CreateContactUseCase } from "domain/contacts/commands/create-contact.use-case";
-import { DeleteContactUseCase } from "domain/contacts/commands/delete-contact.use-case";
-import { UpdateContactUseCase } from "domain/contacts/commands/update-contact.use-case";
-import { GetContactsUseCase } from "domain/contacts/queries/get-contacts.use-case";
-import { SearchContactsUseCase } from "domain/contacts/queries/search-contacts.use-case";
+import { 
+    CreateContactUseCase, 
+    GetContactsUseCase, 
+    SearchContactsUseCase, 
+    UpdateContactUseCase, 
+    DeleteContactUseCase 
+} from "domain/index";
 import { ContactsViewState } from "./contacts-view.state";
 
 export class ContactsViewModel {

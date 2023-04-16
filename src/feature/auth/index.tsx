@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { PublicRoutes } from "./router/public-routes"
 
-const FeatureAuth:React.FC = () => {
+export const FeatureAuth:React.FC = () => {
     return (
         <Routes>
             {
@@ -12,5 +12,3 @@ const FeatureAuth:React.FC = () => {
         </Routes>
     )
 }
-
-export default FeatureAuth

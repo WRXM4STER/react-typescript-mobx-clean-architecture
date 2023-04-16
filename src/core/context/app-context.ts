@@ -1,4 +1,4 @@
-import AuthService from "core/service/auth.service";
+import { AuthService } from "core";
 import { createContext } from "react";
 
 interface IAppContext {

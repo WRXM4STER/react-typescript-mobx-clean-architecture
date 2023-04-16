@@ -1,5 +1,5 @@
-import {describe, expect, test} from '@jest/globals';
-import FormValidator from './form-validator';
+import {describe, expect } from '@jest/globals';
+import { FormValidator } from './form-validator';
 
 describe('form-validate', () => {
 

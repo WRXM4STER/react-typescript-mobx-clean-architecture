@@ -1,4 +1,4 @@
-import { Contact } from "data/contacts/model/contact.model";
+import { Contact } from "data";
 
 export interface ContactsViewState {
     error:string,

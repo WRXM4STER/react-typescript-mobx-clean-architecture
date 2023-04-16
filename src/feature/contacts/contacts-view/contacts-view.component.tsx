@@ -1,10 +1,10 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 import { ContactsViewModel } from './contacts-view.model'
-import { WrapperComponent } from 'shared/ui/wrapper/wrapper.component';
-import { InputComponent } from 'shared/ui/input/input.component';
-import { ButtonComponent } from 'shared/ui/button/button.component';
-import { AppContext } from 'core/context/app-context';
+import { WrapperComponent } from 'shared';
+import { InputComponent } from 'shared';
+import { ButtonComponent } from 'shared';
+import { AppContext } from 'core';
 
 
 interface ContactsViewProps {

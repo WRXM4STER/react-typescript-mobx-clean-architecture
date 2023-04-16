@@ -1,6 +1,6 @@
-import { ErrorMessages } from "core/common/error-messages/error-messages";
-import { Resource } from "core/common/resource/resource";
-import { AuthRepository } from "data/auth/auth.repository";
+import { ErrorMessages } from "core";
+import { Resource } from "core";
+import { AuthRepository } from "data";
 
 export class AuthUseCase {
 

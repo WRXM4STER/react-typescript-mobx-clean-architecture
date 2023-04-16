@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { PrivateRoutes } from "./router/private-routes";
 
-const FeatureContacts:React.FC = () => {
+export const FeatureContacts:React.FC = () => {
     return (
         <Routes>
             {
@@ -12,5 +12,3 @@ const FeatureContacts:React.FC = () => {
         </Routes>
     )
 }
-
-export default FeatureContacts;
