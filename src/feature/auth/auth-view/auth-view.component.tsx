@@ -1,12 +1,8 @@
 import React from 'react'
 import { observer } from 'mobx-react'
-import { AuthViewModel } from './auth-view.model'
-import { FormComponent } from 'shared';
-import { ButtonComponent } from 'shared';
-import { WrapperComponent } from 'shared';
-import { InputComponent } from 'shared';
 import { AppContext } from 'core';
-
+import { AuthViewModel } from './auth-view.model'
+import { WrapperComponent, FormComponent, ButtonComponent, InputComponent } from 'shared';
 
 interface AuthViewProps {
     viewModel:AuthViewModel

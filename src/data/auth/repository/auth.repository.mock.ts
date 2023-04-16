@@ -1,5 +1,4 @@
-import { ErrorMessages } from "core";
-import { Resource } from "core";
+import { ErrorMessages, Resource } from "core";
 import { AuthRepository } from "./auth.repository"
 
 export class AuthRepositoryMockImpl implements AuthRepository {

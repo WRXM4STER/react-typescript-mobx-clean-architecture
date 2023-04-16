@@ -1,3 +1,4 @@
+import { ContactsRepositoryImpl } from "data"
 import { 
     CreateContactUseCase, 
     DeleteContactUseCase, 
@@ -5,7 +6,6 @@ import {
     GetContactsUseCase,
     SearchContactsUseCase 
 } from "domain/index"
-import { ContactsRepositoryImpl } from "data"
 import ContactsViewComponent from "./contacts-view.component"
 import { ContactsViewModel } from "./contacts-view.model"
 

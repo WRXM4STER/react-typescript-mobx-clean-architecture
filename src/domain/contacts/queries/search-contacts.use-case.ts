@@ -1,6 +1,5 @@
 import { Resource } from "core"
-import { ContactsRepository } from "data"
-import { Contact } from "data"
+import { ContactsRepository, Contact } from "data"
 
 export class SearchContactsUseCase {
 

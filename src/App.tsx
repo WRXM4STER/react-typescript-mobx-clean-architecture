@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { FeatureAuth, FeatureContacts } from 'feature';
 import { observer } from 'mobx-react';
 import { AppContext } from 'core';
+import { FeatureAuth, FeatureContacts } from 'feature';
 
 @observer
 class App extends React.Component {

@@ -1,8 +1,7 @@
+import { ErrorMessages, Resource } from "core";
 import { baseClient } from "shared";
 import { ContactData } from "../dto/contact-data.model";
-import { ContactsRepository } from "data/contacts/repository/contacts.repository";
-import { Resource } from "core";
-import { ErrorMessages } from "core";
+import { ContactsRepository } from "./contacts.repository";
 import { Contact } from "../model/contact.model";
 
 export class ContactsRepositoryImpl extends ContactsRepository {

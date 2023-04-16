@@ -1,6 +1,5 @@
 import { baseClient } from "shared";
-import { ErrorMessages } from "core";
-import { Resource } from "core";
+import { ErrorMessages, Resource } from "core";
 import { AuthRepository } from "./auth.repository"
 import { UserData } from "../model/user-data.model";
 
