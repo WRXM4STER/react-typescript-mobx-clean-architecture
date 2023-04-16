@@ -4,7 +4,7 @@ import FormValidator from './form-validator';
 describe('form-validate', () => {
 
     it('email validate is true', () => {
-      expect(FormValidator.isEmailValid('example@mail.ru')).toBe(true);
+        expect(FormValidator.isEmailValid('example@mail.ru')).toBe(true);
     });
 
     it('email validate is false', () => {

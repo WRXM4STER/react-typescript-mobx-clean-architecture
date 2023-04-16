@@ -1,4 +1,4 @@
-export const enum ErrorMessages {
+export enum ErrorMessages {
     DBError = "Ошибка подключения.",
     SignInError = "Неверный логин или пароль!",
     EmailEmpty = "Логин не может быть пустым!",

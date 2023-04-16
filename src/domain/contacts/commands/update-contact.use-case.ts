@@ -1,7 +1,7 @@
-import { Contact } from "data/contacts/repository/model/contact.model";
-import FormValidator from "core/common/form-validator";
-import { Resource } from "core/common/resource";
-import { ContactsRepository } from "data/contacts/repository/contacts.repository"
+import FormValidator from "core/common/form-validator/form-validator";
+import { Resource } from "core/common/resource/resource";
+import { ContactsRepository } from "data/contacts/contacts.repository";
+import { Contact } from "data/contacts/model/contact.model";
 
 export class UpdateContactUseCase {
 

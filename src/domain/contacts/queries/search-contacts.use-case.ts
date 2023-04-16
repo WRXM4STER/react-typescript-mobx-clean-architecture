@@ -1,6 +1,6 @@
-import { Contact } from "data/contacts/repository/model/contact.model";
-import { Resource } from "core/common/resource"
-import { ContactsRepository } from "data/contacts/repository/contacts.repository"
+import { Resource } from "core/common/resource/resource"
+import { ContactsRepository } from "data/contacts/contacts.repository"
+import { Contact } from "data/contacts/model/contact.model"
 
 export class SearchContactsUseCase {
 

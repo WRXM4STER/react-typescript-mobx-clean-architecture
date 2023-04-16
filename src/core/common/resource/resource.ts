@@ -1,4 +1,4 @@
-import { ErrorMessages } from "./error-messages"
+import { ErrorMessages } from "../error-messages/error-messages"
 
 export type Resource<T> = {
     success?:T,
