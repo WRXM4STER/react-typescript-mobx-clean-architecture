@@ -1,6 +1,6 @@
 import {describe, expect, test} from '@jest/globals';
 import { ErrorMessages } from './error-messages';
-import { expectEnum } from '../util/expect-enum';
+import { expectEnum } from '../../../expect-enum';
     
 describe('enum-test', () => {
 
