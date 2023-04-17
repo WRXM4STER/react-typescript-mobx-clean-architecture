@@ -1,11 +1,11 @@
-import { ContactsRepositoryImpl } from "data"
+import { ContactsRepositoryImpl } from "data/contacts"
 import { 
     CreateContactUseCase, 
     DeleteContactUseCase, 
     UpdateContactUseCase, 
     GetContactsUseCase,
     SearchContactsUseCase 
-} from "domain/index"
+} from "domain/contacts"
 import ContactsViewComponent from "./contacts-view.component"
 import { ContactsViewModel } from "./contacts-view.model"
 

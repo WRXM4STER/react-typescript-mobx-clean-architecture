@@ -1,5 +1,5 @@
-import { FormValidator, Resource } from "core";
-import { ContactsRepository, Contact } from "data";
+import { FormValidator, Resource } from "core/common";
+import { ContactsRepository, Contact } from "data/contacts";
 
 export class CreateContactUseCase {
 

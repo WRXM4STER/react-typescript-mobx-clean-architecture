@@ -1,4 +1,4 @@
-import { RouteModel } from "core";
+import { RouteModel } from "core/model";
 import { PublicRouteNames } from "./public-route-names";
 import AuthView from "../auth-view";
 

@@ -1,4 +1,4 @@
-import { Resource } from "core";
+import { Resource } from "core/common";
 import { Contact } from "data/contacts/model/contact.model";
 import { ContactData } from "data/contacts/dto/contact-data.model";
 

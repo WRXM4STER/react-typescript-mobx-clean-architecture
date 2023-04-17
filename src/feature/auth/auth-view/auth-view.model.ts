@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { AuthUseCase } from "domain/index";
+import { AuthUseCase } from "domain/auth";
 import { AuthViewState } from "./auth-view.state";
 
 export class AuthViewModel {

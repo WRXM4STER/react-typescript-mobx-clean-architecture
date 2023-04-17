@@ -1,5 +1,5 @@
-import { AuthRepositoryImpl } from "data"
-import { AuthUseCase } from "domain/index"
+import { AuthRepositoryImpl } from "data/auth"
+import { AuthUseCase } from "domain/auth"
 import AuthViewComponent from "./auth-view.component"
 import { AuthViewModel } from "./auth-view.model"
 

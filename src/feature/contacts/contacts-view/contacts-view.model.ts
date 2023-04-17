@@ -5,7 +5,7 @@ import {
     SearchContactsUseCase, 
     UpdateContactUseCase, 
     DeleteContactUseCase 
-} from "domain/index";
+} from "domain/contacts";
 import { ContactsViewState } from "./contacts-view.state";
 
 export class ContactsViewModel {

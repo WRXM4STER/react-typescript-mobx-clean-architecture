@@ -1,5 +1,5 @@
-import { ErrorMessages, Resource } from "core";
-import { baseClient } from "shared";
+import { ErrorMessages, Resource } from "core/common";
+import { baseClient } from "shared/api";
 import { ContactData } from "../dto/contact-data.model";
 import { ContactsRepository } from "./contacts.repository";
 import { Contact } from "../model/contact.model";

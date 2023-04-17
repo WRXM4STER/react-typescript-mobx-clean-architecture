@@ -1,5 +1,5 @@
-import { Resource } from "core"
-import { ContactsRepository } from "data"
+import { Resource } from "core/common"
+import { ContactsRepository } from "data/contacts"
 
 export class DeleteContactUseCase {
 

@@ -1,4 +1,4 @@
-import { RouteModel } from "core";
+import { RouteModel } from "core/model";
 import { PrivateRouteNames } from "./private-route-names";
 import ContactsView from "../contacts-view";
 
