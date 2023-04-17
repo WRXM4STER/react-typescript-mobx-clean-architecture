@@ -12,14 +12,14 @@ class App extends React.Component {
   context!: React.ContextType<typeof AppContext>;
 
   componentDidMount() {
-    this.context.authService?.isAuth()
+    this.context.authService?.setAuth()
   }
 
   render() { 
     return (
       <BrowserRouter>
         {
-          this.context.authService?.getAccessToken() ? <FeatureContacts/> : <FeatureAuth/>
+          this.context.authService?.isAuth() ? <FeatureContacts/> : <FeatureAuth/>
         }
       </BrowserRouter>
     );
