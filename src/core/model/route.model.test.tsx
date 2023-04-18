@@ -15,7 +15,7 @@ const route:RouteModel = {
 
 describe('route model test', () => {
 
-    it('route model success', () => {
+    it('route model should be success', () => {
         const {container} = render(
             <MemoryRouter initialEntries={[route.path]}>
                 <Routes>
@@ -26,7 +26,7 @@ describe('route model test', () => {
         expect(container.innerHTML).toMatch("Route Model Test");
     });
 
-    it('route model empty', () => {
+    it('route model should be empty', () => {
         const {container} = render(
             <MemoryRouter initialEntries={['/']}>
                 <Routes>

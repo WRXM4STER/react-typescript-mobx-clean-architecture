@@ -3,19 +3,19 @@ import { AuthService } from './auth.service';
 
 describe('auth service test', () => {
 
-    it('is not auth', () => {
+    it('should be not auth', () => {
         const authService = new AuthService()
         expect(authService.isAuth()).toBe('')
     });
 
-    it('sign in success', () => {
+    it('sign in should be success', () => {
         const authService = new AuthService()
         const token = 'random-test-token'
         authService.signIn(token)
         expect(authService.isAuth()).toBe(token)
     });
 
-    it('sign out success', () => {
+    it('sign out should be success', () => {
         const authService = new AuthService()
         const token = 'random-test-token'
         authService.signIn(token)
@@ -23,7 +23,7 @@ describe('auth service test', () => {
         expect(authService.isAuth()).toBe('')
     });
 
-    it('set auth success', () => {
+    it('set auth should be success', () => {
         const authService = new AuthService()
         const token = 'random-test-token'
         authService.signIn(token)

@@ -3,7 +3,7 @@ import { Resource } from './resource';
 
 describe('resource', () => {
 
-    it('resource is success', () => {
+    it('resource should be success', () => {
         const resource:Resource<string> = {
             success:'test-random-token'
         }
@@ -11,7 +11,7 @@ describe('resource', () => {
         expect(resource.error).toEqual(undefined)
     });
 
-    it('resource is error', () => {
+    it('resource should be error', () => {
         const resource:Resource<string> = {
             error:'text-error'
         }
