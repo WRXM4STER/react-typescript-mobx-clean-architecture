@@ -1,6 +1,7 @@
 import {describe, expect } from '@jest/globals';
 import { ContactsRepositoryMockImpl } from 'data/contacts/repository/contacts.repository.mock';
 import { CreateContactUseCase } from './create-contact.use-case';
+import { ErrorMessages } from 'core/common';
 
 describe('create contact use-case test', () => {
 
@@ -22,21 +23,21 @@ describe('create contact use-case test', () => {
         const createContactUseCase = new CreateContactUseCase(contactsRepositoryMockImpl)
         const result = await createContactUseCase.execute('','+79998887766')
         expect(result.success).toBe(undefined)
-        expect(result.error).toBe('ФИО не может быть пустым!')
+        expect(result.error).toBe(ErrorMessages.NameEmpty)
     });
 
     it('phone is not be empty', async () => {
         const createContactUseCase = new CreateContactUseCase(contactsRepositoryMockImpl)
         const result = await createContactUseCase.execute('Test Name 1','')
         expect(result.success).toBe(undefined)
-        expect(result.error).toBe('Введите номер телефона!')
+        expect(result.error).toBe(ErrorMessages.PhoneEmpty)
     });
 
     it('phone is not valid', async () => {
         const createContactUseCase = new CreateContactUseCase(contactsRepositoryMockImpl)
         const result = await createContactUseCase.execute('Test Name 1','not valid number')
         expect(result.success).toBe(undefined)
-        expect(result.error).toBe('Номер телефона введен некорректно!')
+        expect(result.error).toBe(ErrorMessages.PhoneIsNotValid)
     });
 
 });

@@ -1,4 +1,4 @@
-import { FormValidator, Resource } from "core/common";
+import { ErrorMessages, FormValidator, Resource } from "core/common";
 import { ContactsRepository } from "data/contacts";
 import { Contact } from "../../../model";
 
@@ -14,19 +14,19 @@ export class CreateContactUseCase {
         
         if (!name) {
             return Promise.resolve({
-                error:'ФИО не может быть пустым!'
+                error:ErrorMessages.NameEmpty
             });
         }
 
         if (!phone) {
             return Promise.resolve({
-                error:'Введите номер телефона!'
+                error:ErrorMessages.PhoneEmpty
             });
         }
 
         if (!FormValidator.isPhoneValid(phone)) {
             return Promise.resolve({
-                error:'Номер телефона введен некорректно!'
+                error:ErrorMessages.PhoneIsNotValid
             });
         }
 

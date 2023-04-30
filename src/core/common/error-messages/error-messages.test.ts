@@ -20,4 +20,16 @@ describe('enum-test', () => {
         expect({ type: ErrorMessages.SignInError }).toMatchObject({ type: expectEnum(ErrorMessages) });
     });
 
+    it('enum NameEmpty test', () => {
+        expect({ type: ErrorMessages.NameEmpty }).toMatchObject({ type: expectEnum(ErrorMessages) });
+    });
+
+    it('enum PhoneEmpty test', () => {
+        expect({ type: ErrorMessages.PhoneEmpty }).toMatchObject({ type: expectEnum(ErrorMessages) });
+    });
+
+    it('enum PhoneIsNotValid test', () => {
+        expect({ type: ErrorMessages.PhoneIsNotValid }).toMatchObject({ type: expectEnum(ErrorMessages) });
+    });
+
 });
