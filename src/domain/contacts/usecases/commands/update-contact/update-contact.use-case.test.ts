@@ -51,8 +51,40 @@ describe('update contact use-case test', () => {
         })
     });
 
-    it('should be error', async () => {
-        
+    it('name is not be empty', async () => {
+        const updateContactUseCase = new UpdateContactUseCase(contactsRepositoryMockImpl)
+        const result = await updateContactUseCase.execute({
+            id:1,
+            name:'',
+            phone:'+79998887767',
+            is_edit:true
+        })
+        expect(result.success).toBe(undefined)
+        expect(result.error).toBe(ErrorMessages.NameEmpty)
+    });
+
+    it('phone is not be empty', async () => {
+        const updateContactUseCase = new UpdateContactUseCase(contactsRepositoryMockImpl)
+        const result = await updateContactUseCase.execute({
+            id:1,
+            name:'Test Name 1 updated',
+            phone:'',
+            is_edit:true
+        })
+        expect(result.success).toBe(undefined)
+        expect(result.error).toBe(ErrorMessages.PhoneEmpty)
+    });
+
+    it('phone is not valid', async () => {
+        const updateContactUseCase = new UpdateContactUseCase(contactsRepositoryMockImpl)
+        const result = await updateContactUseCase.execute({
+            id:1,
+            name:'Test Name 1 updated',
+            phone:'not valid phone',
+            is_edit:true
+        })
+        expect(result.success).toBe(undefined)
+        expect(result.error).toBe(ErrorMessages.PhoneIsNotValid)
     });
 
 });

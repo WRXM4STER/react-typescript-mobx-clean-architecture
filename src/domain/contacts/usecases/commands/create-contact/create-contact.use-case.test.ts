@@ -35,7 +35,7 @@ describe('create contact use-case test', () => {
 
     it('phone is not valid', async () => {
         const createContactUseCase = new CreateContactUseCase(contactsRepositoryMockImpl)
-        const result = await createContactUseCase.execute('Test Name 1','not valid number')
+        const result = await createContactUseCase.execute('Test Name 1','not valid phone')
         expect(result.success).toBe(undefined)
         expect(result.error).toBe(ErrorMessages.PhoneIsNotValid)
     });
