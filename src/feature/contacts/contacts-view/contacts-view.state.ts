@@ -1,4 +1,4 @@
-import { Contact } from "data/contacts";
+import { Contact } from "domain/contacts";
 
 export interface ContactsViewState {
     error:string,

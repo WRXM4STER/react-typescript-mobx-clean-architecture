@@ -1,8 +1,9 @@
 import { ErrorMessages, Resource } from "core/common";
 import { baseClient } from "shared/api";
-import { ContactData } from "../dto/contact-data.model";
+import { ContactData } from "../model/contact-data.model";
 import { ContactsRepository } from "./contacts.repository";
-import { Contact } from "../model/contact.model";
+import { Contact } from "../../../domain/contacts/model/contact.model";
+import { mapToDomain } from "../mapper";
 
 export class ContactsRepositoryImpl extends ContactsRepository {
 
@@ -36,7 +37,7 @@ export class ContactsRepositoryImpl extends ContactsRepository {
             })
         }
         return Promise.resolve({
-            success:this.mapTo(contacts)
+            success:mapToDomain(contacts)
         }) 
     }
 
@@ -70,24 +71,15 @@ export class ContactsRepositoryImpl extends ContactsRepository {
 
     async searchContacts(search: string): Promise<Resource<Contact[]>> {
         const response = await baseClient.get<ContactData[]>('/contacts');
-        const contacts = response.data.filter(item => item.name.includes(search) || item.phone.includes(search));
+        const contacts = response.data.filter((item: { name: string | string[]; phone: string | string[]; }) => item.name.includes(search) || item.phone.includes(search));
         if (response.status!==200 && !contacts) {
             return Promise.resolve({
                 error:ErrorMessages.DBError
             })
         }
         return Promise.resolve({
-            success:this.mapTo(contacts)
+            success:mapToDomain(contacts)
         }) 
-    }
-
-    mapTo(data:ContactData[]):Contact[] {
-        return data.map(item => ({
-            id:item.id,
-            name:item.name,
-            phone:item.phone,
-            is_edit:false
-        }))
     }
     
 }

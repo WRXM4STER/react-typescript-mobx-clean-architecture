@@ -1,7 +1,8 @@
 import { FormValidator, Resource } from "core/common";
-import { ContactsRepository, Contact } from "data/contacts";
+import { ContactsRepository } from "data/contacts";
+import { Contact } from "../../model";
 
-export class UpdateContactUseCase {
+export class CreateContactUseCase {
 
     repository: ContactsRepository
 
@@ -9,26 +10,26 @@ export class UpdateContactUseCase {
         this.repository=repository
     }
 
-    public async execute(contact:Contact):Promise<Resource<boolean>> {
-
-        if (!contact.name) {
+    public async execute(name:string,phone:string):Promise<Resource<Contact>> {
+        
+        if (!name) {
             return Promise.resolve({
                 error:'ФИО не может быть пустым!'
             });
         }
 
-        if (!contact.phone) {
+        if (!phone) {
             return Promise.resolve({
                 error:'Введите номер телефона!'
             });
         }
 
-        if (!FormValidator.isPhoneValid(contact.phone)) {
+        if (!FormValidator.isPhoneValid(phone)) {
             return Promise.resolve({
                 error:'Номер телефона введен некорректно!'
             });
         }
 
-        return await this.repository.updateContact(contact)
+        return await this.repository.createContact(name,phone)
     }
 }
