@@ -5,9 +5,9 @@ import { AuthViewModel } from "./auth-view.model"
 
 const AuthView:React.FC = () => {
 
-    //infrastructure
+    //data
     const authRepository = new AuthRepositoryImpl()
-    //core
+    //domain
     const authUseCase = new AuthUseCase(authRepository) 
     //presentation
     const authViewModel = new AuthViewModel(authUseCase)

@@ -35,6 +35,7 @@ export default class AuthViewComponent extends React.Component<AuthViewProps> {
                     <h1>Вход в систему</h1>
                     <h2 className="text-red-500">{uiState.error}</h2>
                     <InputComponent
+                        id="username-input"
                         type="text" 
                         placeholder='Логин' 
                         value={uiState.email}
@@ -43,6 +44,7 @@ export default class AuthViewComponent extends React.Component<AuthViewProps> {
                         }}
                     />
                     <InputComponent 
+                        id="password-input"
                         type="text" 
                         placeholder='Пароль'
                         value={uiState.password}
