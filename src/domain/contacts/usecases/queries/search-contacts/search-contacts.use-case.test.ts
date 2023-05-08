@@ -38,7 +38,7 @@ describe('search contacts use-case test', () => {
         const result = await searchContactsUseCase.execute('Test Name')
         const domainContacts = mapToDomain(testData)
         expect(result.success).toEqual(domainContacts)
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
     it('search first contact should be success', async () => {
@@ -50,14 +50,14 @@ describe('search contacts use-case test', () => {
             phone:'+79998887766',
             is_edit:false
         }])
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
     it('should be empty list', async () => {
         const searchContactsUseCase = new SearchContactsUseCase(contactsRepositoryMockImpl)
         const result = await searchContactsUseCase.execute('Unknown Name')
         expect(result.success).toEqual([])
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
 });

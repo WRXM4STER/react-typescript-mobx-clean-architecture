@@ -1,5 +1,4 @@
 import { describe } from '@jest/globals';
-import { ErrorMessages } from 'core/common';
 import { AuthRepositoryMockImpl } from 'data/auth';
 import { render, screen } from '@testing-library/react';
 import { AuthUseCase } from 'domain/auth';

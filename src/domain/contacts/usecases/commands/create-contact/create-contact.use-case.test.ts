@@ -16,7 +16,7 @@ describe('create contact use-case test', () => {
             phone:'+79998887766',
             is_edit:false
         })
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
     it('name is not be empty', async () => {
@@ -29,7 +29,7 @@ describe('create contact use-case test', () => {
     it('phone is not be empty', async () => {
         const createContactUseCase = new CreateContactUseCase(contactsRepositoryMockImpl)
         const result = await createContactUseCase.execute('Test Name 1','')
-        expect(result.success).toBe(undefined)
+        expect(result.success).toBeUndefined()
         expect(result.error).toBe(ErrorMessages.PhoneEmpty)
     });
 

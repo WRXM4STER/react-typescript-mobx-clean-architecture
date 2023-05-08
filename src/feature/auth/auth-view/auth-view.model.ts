@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { AuthUseCase } from "domain/auth";
 import { AuthViewState } from "./auth-view.state";
 
@@ -21,18 +21,24 @@ export class AuthViewModel {
     }
 
     onEmailChanged(loginQuery: string) {
-        this.uiState.email=loginQuery
+        runInAction(() => {
+            this.uiState.email=loginQuery
+        })
     }
 
     onPasswordChanged(passwordQuery: string): void {
-        this.uiState.password=passwordQuery
+        runInAction(() => {
+            this.uiState.password=passwordQuery
+        })
     }
 
     async onClickSignIn() {
         const result = await this.authUseCase.execute(this.uiState.email, this.uiState.password)
-        if(result.error) {
-            this.uiState.error = result.error
-        }
+        runInAction(() => {
+            if(result.error) {
+                this.uiState.error = result.error
+            }
+        })
         return result
     }
 

@@ -32,13 +32,13 @@ describe('contacts repository test', () => {
             phone:'+79998887766',
             is_edit:false
         })
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
     it('create contact should be error', async () => {
         const contactsRepository = new ContactsRepositoryMockImpl()
         const result = await contactsRepository.createContact('','')
-        expect(result.success).toBe(undefined)
+        expect(result.success).toBeUndefined()
         expect(result.error).toBe(ErrorMessages.DBError)
     });
 
@@ -50,14 +50,14 @@ describe('contacts repository test', () => {
         const result = await contactsRepository.getContacts()
         const domainContacts = mapToDomain(testData)
         expect(result.success).toEqual(domainContacts)
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
     it('get contacts should be empty', async () => {
         const contactsRepository = new ContactsRepositoryMockImpl()
         const result = await contactsRepository.getContacts()
         expect(result.success).toEqual([])
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
     it('update contact should be success', async () => {
@@ -93,7 +93,7 @@ describe('contacts repository test', () => {
             name:'Test Name 1 updated',
             phone:'+79998887767'
         })
-        expect(updateStatus.success).toBe(undefined)
+        expect(updateStatus.success).toBeUndefined()
         expect(updateStatus.error).toBe(ErrorMessages.DBError)
 
         const result = await contactsRepository.getContacts()
@@ -132,7 +132,7 @@ describe('contacts repository test', () => {
 
         const deleteStatus = await contactsRepository.deleteContact(100)
         expect(deleteStatus.error).toBe(ErrorMessages.DBError)
-        expect(deleteStatus.success).toBe(undefined)
+        expect(deleteStatus.success).toBeUndefined()
 
         const resultWithoutFirst = await contactsRepository.getContacts()
         expect(resultWithoutFirst.success?.length).toBe(3)
@@ -146,7 +146,7 @@ describe('contacts repository test', () => {
         const result = await contactsRepository.searchContacts('Test Name')
         const domainContacts = mapToDomain(testData)
         expect(result.success).toEqual(domainContacts)
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
     it('search first contact should be success', async () => {
@@ -161,7 +161,7 @@ describe('contacts repository test', () => {
             phone:'+79998887766',
             is_edit:false
         }])
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
     it('search contacts should be empty', async () => {
@@ -171,7 +171,7 @@ describe('contacts repository test', () => {
         })
         const result = await contactsRepository.searchContacts('Test Name 1222')
         expect(result.success).toEqual([])
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
 });

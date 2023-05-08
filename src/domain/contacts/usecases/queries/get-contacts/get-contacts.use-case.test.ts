@@ -38,14 +38,14 @@ describe('get contacts use-case test', () => {
         const result = await getContactsUseCase.execute()
         const domainContacts = mapToDomain(testData)
         expect(result.success).toEqual(domainContacts)
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
     it('should be empty list', async () => {
         const getContactsUseCase = new GetContactsUseCase(contactsRepositoryMockImpl)
         const result = await getContactsUseCase.execute()
         expect(result.success).toEqual([])
-        expect(result.error).toBe(undefined)
+        expect(result.error).toBeUndefined()
     });
 
 });

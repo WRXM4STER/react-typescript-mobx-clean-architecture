@@ -16,6 +16,11 @@ class App extends React.Component {
   }
 
   render() { 
+    if (this.context.authService?.isLoading()) {
+      return (
+        <h1>Loading...</h1>
+      );
+    }
     return (
       <BrowserRouter>
         {

@@ -2,12 +2,18 @@ import { makeAutoObservable } from "mobx";
 
 export class AuthService {
 
+    private is_loading = true
+
     private storage_name:string='auth'
 
     private access_token:string=''
 
     constructor() {
         makeAutoObservable(this)
+    }
+
+    isLoading() {
+        return this.is_loading
     }
 
     isAuth() {
@@ -20,6 +26,7 @@ export class AuthService {
         if (auth && auth.access_token) {
             this.access_token = auth.access_token
         }
+        this.is_loading = false
     }
 
     signIn(access_token:string) {

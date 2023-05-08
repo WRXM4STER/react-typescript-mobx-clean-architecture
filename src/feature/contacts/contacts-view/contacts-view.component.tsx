@@ -53,7 +53,8 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                     <tbody>
                         <tr>
                             <td colSpan={2}>
-                                <InputComponent 
+                                <InputComponent
+                                    id="search-input" 
                                     type="text"  
                                     value={uiState.search}
                                     placeholder="Введите фио или номер для поиска"
@@ -70,6 +71,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                         <tr>
                             <td>
                                 <InputComponent
+                                    id="new-name-input"
                                     type="text"  
                                     value={uiState.name}
                                     placeholder="Введите ФИО" 
@@ -80,6 +82,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                             </td>
                             <td>
                                 <InputComponent
+                                    id="new-phone-input"
                                     type="text" 
                                     value={uiState.phone}
                                     placeholder="Введите номер"
@@ -96,7 +99,8 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                             uiState.contacts.map((item, index) => 
                                 <tr key={item.id}>
                                     <td>
-                                        <InputComponent 
+                                        <InputComponent
+                                            id={"name-input-" + item.id} 
                                             type="text" 
                                             value={item.name} 
                                             onChange={(e: React.FormEvent<HTMLInputElement>): void => {
@@ -106,6 +110,7 @@ export default class ContactsViewComponent extends React.Component<ContactsViewP
                                     </td>
                                     <td>
                                         <InputComponent 
+                                            id={"phone-input-" + item.id} 
                                             type="text"
                                             value={item.phone}
                                             onChange={(e: React.FormEvent<HTMLInputElement>): void => {

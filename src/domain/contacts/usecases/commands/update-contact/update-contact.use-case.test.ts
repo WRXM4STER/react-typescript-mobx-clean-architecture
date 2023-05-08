@@ -59,7 +59,7 @@ describe('update contact use-case test', () => {
             phone:'+79998887767',
             is_edit:true
         })
-        expect(result.success).toBe(undefined)
+        expect(result.success).toBeUndefined()
         expect(result.error).toBe(ErrorMessages.NameEmpty)
     });
 
@@ -71,7 +71,7 @@ describe('update contact use-case test', () => {
             phone:'',
             is_edit:true
         })
-        expect(result.success).toBe(undefined)
+        expect(result.success).toBeUndefined()
         expect(result.error).toBe(ErrorMessages.PhoneEmpty)
     });
 
@@ -83,7 +83,7 @@ describe('update contact use-case test', () => {
             phone:'not valid phone',
             is_edit:true
         })
-        expect(result.success).toBe(undefined)
+        expect(result.success).toBeUndefined()
         expect(result.error).toBe(ErrorMessages.PhoneIsNotValid)
     });
 

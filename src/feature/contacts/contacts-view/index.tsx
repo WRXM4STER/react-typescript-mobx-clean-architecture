@@ -11,9 +11,9 @@ import { ContactsViewModel } from "./contacts-view.model"
 
 const ContactsView:React.FC = () => {
 
-    //infrastructure
+    //data
     const contactsRepository = new ContactsRepositoryImpl()
-    //core
+    //domain
     const getContactsUseCase = new GetContactsUseCase(contactsRepository) 
     const createContactUseCase = new CreateContactUseCase(contactsRepository) 
     const updateContactUseCase = new UpdateContactUseCase(contactsRepository) 

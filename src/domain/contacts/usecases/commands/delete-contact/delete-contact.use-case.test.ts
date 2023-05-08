@@ -52,7 +52,7 @@ describe('delete contact use-case test', () => {
 
         const deleteStatus = await deleteContactUseCase.execute(100)
         expect(deleteStatus.error).toBe(ErrorMessages.DBError)
-        expect(deleteStatus.success).toBe(undefined)
+        expect(deleteStatus.success).toBeUndefined()
 
         const resultWithoutFirst = await contactsRepositoryMockImpl.getContacts()
         expect(resultWithoutFirst.success?.length).toBe(3)
