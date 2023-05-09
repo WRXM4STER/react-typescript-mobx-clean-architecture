@@ -1,5 +1,5 @@
 import { describe } from '@jest/globals';
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ContactsRepositoryMockImpl } from 'data/contacts/repository/contacts.repository.mock';
 import { CreateContactUseCase, DeleteContactUseCase, GetContactsUseCase, SearchContactsUseCase, UpdateContactUseCase } from 'domain/contacts';
@@ -114,18 +114,21 @@ describe('contacts-view component test', () => {
     });
 
     it('should delete contact success', async () => {
+        //not worked
         render(<ContactsViewComponent viewModel={viewModel}/>)
 
         userEvent.type(screen.getByLabelText('new-name-input'), 'TestName')
         userEvent.type(screen.getByLabelText('new-phone-input'), '+79998887766')
         const buttonAdd = screen.getByText('Добавить')
         userEvent.click(buttonAdd)
-
         const buttonDelete = await screen.findByText('Удалить')
-        userEvent.click(buttonDelete)
 
-        const result = await screen.findByDisplayValue(/TestName/) 
-        expect(result).toBeUndefined()
+        act(()=>{
+            userEvent.click(buttonDelete)
+        })
+
+        const result = screen.queryAllByDisplayValue(/TestName/) 
+        expect(result[0]).toBeUndefined()
     });
 
 })
