@@ -1,5 +1,5 @@
 import { describe } from '@jest/globals';
-import { act, render, screen } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ContactsRepositoryMockImpl } from 'data/contacts/repository/contacts.repository.mock';
 import { CreateContactUseCase, DeleteContactUseCase, GetContactsUseCase, SearchContactsUseCase, UpdateContactUseCase } from 'domain/contacts';
@@ -52,7 +52,10 @@ describe('contacts-view component test', () => {
         expect(await screen.findByDisplayValue(/79998887766/)).toBeInTheDocument()
     });
 
-    it('should create new contact error', async () => {
+    it('should create new contact with phone error', async () => {
+        const mockAlert = jest.fn()
+        window.alert = mockAlert
+
         render(<ContactsViewComponent viewModel={viewModel}/>)
 
         userEvent.type(screen.getByLabelText('new-name-input'), 'TestName')
@@ -62,8 +65,14 @@ describe('contacts-view component test', () => {
 
         userEvent.click(button)
 
-        expect(await screen.findByDisplayValue(/TestName/)).toBeUndefined()
-        expect(await screen.findByDisplayValue(/not valid number/)).toBeUndefined()
+        const resultName = await screen.findAllByDisplayValue(/TestName/)
+        const resultPhone = await screen.findAllByDisplayValue(/not valid number/)
+
+        expect(resultName[1]).toBeUndefined()
+        expect(resultPhone[1]).toBeUndefined()
+
+        expect(mockAlert).toHaveBeenCalledTimes(1)
+        expect(mockAlert).toBeCalledWith('Номер телефона введен некорректно!')
     });
 
     it('should find created contact success', async () => {
@@ -116,7 +125,7 @@ describe('contacts-view component test', () => {
         userEvent.click(buttonDelete)
 
         const result = await screen.findByDisplayValue(/TestName/) 
-        expect(result).toBe(undefined)
+        expect(result).toBeUndefined()
     });
 
 })
