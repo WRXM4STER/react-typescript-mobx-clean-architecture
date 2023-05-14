@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { AppContext } from 'core/context';
-import { AuthService } from 'core/service';
+import { AppContext } from 'app/core/context';
+import { AuthService } from 'app/core/service';
+import App from 'app';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
